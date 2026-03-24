@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Preview - FormAutoFill</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F3F4F6;
+      padding: 32px;
+      color: #1F2937;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: white;
+      padding: 24px 32px;
+    }
+
+    .header h1 { font-size: 22px; margin-bottom: 4px; }
+    .header p { font-size: 14px; opacity: 0.9; }
+
+    .content { padding: 24px 32px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+
+    th {
+      background: #F9FAFB;
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #6B7280;
+      border-bottom: 2px solid #E5E7EB;
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #F3F4F6;
+      font-size: 14px;
+    }
+
+    tr:hover { background: #F9FAFB; }
+
+    .field-name { font-weight: 600; color: #374151; }
+    .field-value { color: #111827; }
+    .field-type {
+      font-size: 11px;
+      background: #E5E7EB;
+      color: #6B7280;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: #9CA3AF;
+    }
+
+    .empty-icon { font-size: 48px; margin-bottom: 16px; }
+    .empty h2 { font-size: 18px; margin-bottom: 8px; color: #6B7280; }
+    .empty p { font-size: 14px; }
+
+    .footer {
+      padding: 16px 32px;
+      background: #F9FAFB;
+      border-top: 1px solid #E5E7EB;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-edit { background: #F3F4F6; color: #374151; }
+    .btn-edit:hover { background: #E5E7EB; }
+
+    .btn-confirm { background: #10B981; color: white; }
+    .btn-confirm:hover { background: #059669; }
+
+    .count { font-size: 13px; color: #6B7280; }
+
+    .edit-input {
+      display: none;
+      width: 100%;
+      padding: 6px 10px;
+      border: 1px solid #D1D5DB;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .edit-input:focus {
+      outline: none;
+      border-color: #3B82F6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>👁️ Preview de Datos</h1>
+      <p>Revisa los datos capturados antes de pegarlos</p>
+    </div>
+
+    <div class="content">
+      <div id="tableContainer">
+        <table>
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Valor</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="empty" id="emptyState" style="display:none">
+        <div class="empty-icon">📭</div>
+        <h2>No hay datos capturados</h2>
+        <p>Activa "Nuevo Formulario" y llena un formulario para capturar datos.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="count" id="fieldCount">0 campos</span>
+      <div>
+        <button class="btn btn-edit" id="btnEdit">✏️ Editar</button>
+        <button class="btn btn-confirm" id="btnClose">✅ Listo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="preview.js"></script>
+</body>
+</html>

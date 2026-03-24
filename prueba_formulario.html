@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Laboratorio de Pruebas - FormAutoFill</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            max-width: 600px;
+            width: 100%;
+        }
+        h2 { margin-top: 0; color: #111827; }
+        .instrucciones {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
+        input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: all 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        .row { display: flex; gap: 15px; }
+        .row .form-group { flex: 1; }
+        .btn-submit {
+            background: #111827;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🧪 Laboratorio de Pruebas: FormAutoFill</h2>
+    
+    <div class="instrucciones">
+        <strong>Paso 1:</strong> Llena los datos que quieras (pueden ser falsos). <br>
+        <strong>Paso 2:</strong> Abre tu extensión y haz clic en <b>"Copiar Formulario"</b>.<br>
+        <strong>Paso 3:</strong> Refresca esta página (F5) para que todo se borre.<br>
+        <strong>Paso 4:</strong> Abre la extensión y haz clic en <b>"Pegar Formulario"</b>. ¡Mira la magia!
+    </div>
+
+    <form onsubmit="event.preventDefault(); alert('Formulario enviado (simulación)');">
+        <div class="row">
+            <div class="form-group">
+                <label for="nombres">Nombres</label>
+                <input type="text" id="nombres" name="first_name" placeholder="Ej. Juan Marcos">
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="last_name" placeholder="Ej. Pérez">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" name="email" placeholder="juan@correo.com">
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="telefono">Teléfono Activo</label>
+                <input type="tel" id="telefono" name="phone_number">
+            </div>
+            <div class="form-group">
+                <label for="pais">País de Residencia</label>
+                <select id="pais" name="country">
+                    <option value="">Selecciona un país...</option>
+                    <option value="colombia">Colombia</option>
+                    <option value="mexico">México</option>
+                    <option value="españa">España</option>
+                    <option value="argentina">Argentina</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="comentarios">Dirección o Comentarios Adicionales</label>
+            <textarea id="comentarios" name="comments" rows="3" placeholder="Calle 123..."></textarea>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <label style="display: flex; align-items: center; gap: 10px; font-weight: normal; cursor: pointer;">
+                <input type="checkbox" id="terminos" name="terms_accepted">
+                Acepto los términos y condiciones del laboratorio de pruebas.
+            </label>
+        </div>
+
+        <button type="submit" class="btn-submit">Enviar Registro</button>
+    </form>
+</div>
+
+</body>
+</html>
