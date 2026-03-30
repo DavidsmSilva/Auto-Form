@@ -1,27 +1,27 @@
 # FormAutoFill 📋
 
-Extensión de Chrome para copiar y pegar formularios de cualquier página web.
+Chrome extension to copy and paste form data between any web page.
 
-## ¿Qué hace?
+## What does it do?
 
-Copiás un formulario lleno y lo pegás en otro sitio en segundos. Ideal para cuando necesitás llenar el mismo formulario en diferentes páginas o cuando perdés datos por timeouts.
+Copy a filled form and paste it on another site in seconds. Perfect when you need to fill the same form across different pages or when you lose data due to timeouts.
 
-## Instalación
+## Installation
 
-### Desde Chrome Web Store
-*(Próximamente)*
+### From Chrome Web Store
+*(Coming soon)*
 
-### Instalación manual (Developer Mode)
+### Manual Installation (Developer Mode)
 
-1. Descargá o cloná este repositorio
-2. Abrí Chrome e ingresá a `chrome://extensions/`
-3. Activá el **Modo de desarrollador** (switch en la esquina superior derecha)
-4. Hacé click en **"Cargar extensión sin empaquetar"**
-5. Seleccioná la carpeta `FORM-AUTO/FormAutoFill`
+1. Download or clone this repository
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable **Developer mode** (toggle in the top right corner)
+4. Click **"Load unpacked"**
+5. Select the `FORM-AUTO/FormAutoFill` folder
 
 ```
 📁 FORM-AUTO
-  └── FormAutoFill ← seleccionar esta carpeta
+  └── FormAutoFill ← select this folder
         ├── background.js
         ├── content.js
         ├── manifest.json
@@ -31,125 +31,125 @@ Copiás un formulario lleno y lo pegás en otro sitio en segundos. Ideal para cu
         └── preview.js
 ```
 
-## Cómo usarlo
+## How to use
 
-### Método 1: Botones del popup
+### Method 1: Popup buttons
 
-1. Andá a una página con un formulario lleno
-2. Click en el ícono de la extensión
-3. Click en **"Copiar Formulario"** (📸)
-4. Andá a otra página con un formulario similar
-5. Click en **"Pegar Formulario"** (⚡)
+1. Go to a page with a filled form
+2. Click the extension icon
+3. Click **"Copy Form"** (📸)
+4. Go to another page with a similar form
+5. Click **"Paste Form"** (⚡)
 
-### Método 2: Atajos de teclado
+### Method 2: Keyboard shortcuts
 
-| Atajo Windows/Linux | Atajo Mac | Acción |
-|---------------------|-----------|--------|
-| `Ctrl + Shift + C` | `Cmd + Shift + C` | Copiar formulario |
-| `Ctrl + Shift + V` | `Cmd + Shift + V` | Pegar formulario |
-| `Ctrl + Shift + P` | `Cmd + Shift + P` | Ver datos guardados |
+| Windows/Linux | Mac | Action |
+|---------------|-----|--------|
+| `Ctrl + Shift + C` | `Cmd + Shift + C` | Copy form |
+| `Ctrl + Shift + V` | `Cmd + Shift + V` | Paste form |
+| `Ctrl + Shift + P` | `Cmd + Shift + P` | Preview saved data |
 
-## Características
+## Features
 
-- ✅ Captura todos los tipos de inputs (text, email, tel, number, date, etc.)
-- ✅ Soporte para selects, textareas, checkboxes y radios
-- ✅ Matching inteligente entre formularios diferentes
-- ✅ Diccionario multilingüe (español/inglés)
-- ✅ Compatible con React, Angular, jQuery y Select2
-- ✅ Soporte para iframes del mismo origen
-- ✅ Atajos de teclado
-- ✅ Vista previa de datos guardados
-- ✅ Edición de valores antes de pegar
-- ✅ Animaciones visuales de confirmación
-- ✅ Zero dependencias externas
+- ✅ Captures all input types (text, email, tel, number, date, etc.)
+- ✅ Supports selects, textareas, checkboxes and radios
+- ✅ Smart matching between different forms
+- ✅ Multilingual dictionary (Spanish/English)
+- ✅ Compatible with React, Angular, jQuery and Select2
+- ✅ Same-origin iframe support
+- ✅ Keyboard shortcuts
+- ✅ Preview of saved data
+- ✅ Edit values before pasting
+- ✅ Visual confirmation animations
+- ✅ Zero external dependencies
 
-## Matching inteligente
+## Smart Matching
 
-La extensión usa un algoritmo de 4 niveles para encontrar qué campo en destino corresponde a cada dato copiado:
+The extension uses a 4-level algorithm to find which destination field corresponds to each copied value:
 
-1. **Match exacto** por name, id o coincidencia en diccionario
-2. **Match por tipo** (si hay un solo campo email, lo usa directo)
-3. **Match por labels visuales** (aria-label, placeholder, label asociado)
-4. **Match por subcadenas** (si "nombre" aparece en "nombre_completo")
+1. **Exact match** by name, id or dictionary match
+2. **Type matching** (if there's only one email field, it uses it directly)
+3. **Visual label matching** (aria-label, placeholder, associated label)
+4. **Substring matching** (if "name" appears in "full_name")
 
-### Diccionario de campos
+### Field Dictionary
 
-| Campo | Sinónimos en español | Sinónimos en inglés |
-|-------|---------------------|-------------------|
-| Correo | email, correo, mail | email, mail, e-mail |
-| Teléfono | telefono, celular, móvil | phone, mobile, whatsapp |
-| Nombre | nombre, nombres | name, first |
-| Apellido | apellido, apellidos | lastname, surname |
-| Dirección | direccion, calle, domicilio | address, street |
-| Ciudad | ciudad, localidad, municipio | city, town |
-| Documento | dni, cédula, rut, nit, rfc | id, passport |
+| Field | Spanish synonyms | English synonyms |
+|-------|-----------------|-----------------|
+| Email | email, correo, mail | email, mail, e-mail |
+| Phone | telefono, celular, móvil | phone, mobile, whatsapp |
+| First name | nombre, nombres | name, first |
+| Last name | apellido, apellidos | lastname, surname |
+| Address | direccion, calle, domicilio | address, street |
+| City | ciudad, localidad, municipio | city, town |
+| Document | dni, cédula, rut, nit, rfc | id, passport |
 
-## Formulario de prueba
+## Test Form
 
-El repositorio incluye `formulario-prueba.html` con 50+ campos de diferentes tipos para testear la extensión.
+The repository includes `test-form.html` with 50+ fields of different types to test the extension.
 
-1. Abrí `formulario-prueba.html` en Chrome
-2. Completá los campos manualmente
-3. Usá la extensión para copiar
-4. Abrí otra pestaña con el mismo formulario
-5. Pegá los datos
+1. Open `test-form.html` in Chrome
+2. Fill the fields manually
+3. Use the extension to copy
+4. Open another tab with the same form
+5. Paste the data
 
-## Tipos de datos soportados
+## Supported Data Types
 
-| Tipo | Descripción |
+| Type | Description |
 |------|-------------|
-| `text` | Texto libre |
-| `email` | Correo electrónico |
-| `tel` | Teléfono |
-| `password` | Contraseña |
-| `number` | Números |
-| `date` | Fechas |
-| `datetime-local` | Fecha y hora |
-| `time` | Hora |
-| `color` | Selector de color |
-| `range` | Rango |
+| `text` | Free text |
+| `email` | Email address |
+| `tel` | Phone number |
+| `password` | Password |
+| `number` | Numbers |
+| `date` | Dates |
+| `datetime-local` | Date and time |
+| `time` | Time |
+| `color` | Color picker |
+| `range` | Range slider |
 | `url` | URLs |
-| `select` | Listas desplegables |
-| `select multiple` | Listas con selección múltiple |
-| `textarea` | Áreas de texto |
-| `checkbox` | Casillas de verificación |
-| `radio` | Botones de opción |
-| `hidden` | Campos ocultos (solo si tienen valor) |
+| `select` | Dropdowns |
+| `select multiple` | Multiple selection lists |
+| `textarea` | Text areas |
+| `checkbox` | Checkboxes |
+| `radio` | Radio buttons |
+| `hidden` | Hidden fields (only if they have a value) |
 
-## Estructura del proyecto
+## Project Structure
 
 ```
 FORM-AUTO/FormAutoFill/
-├── manifest.json      # Configuración de la extensión (Manifest V3)
-├── background.js      # Service Worker para manejo de mensajes
-├── popup.html         # Interfaz principal
-├── popup.js           # Lógica del popup y scripts inyectados
-├── content.js         # Script de contenido (messaging)
-├── preview.html       # Vista previa de datos guardados
-└── preview.js         # Lógica de la vista previa
+├── manifest.json      # Extension configuration (Manifest V3)
+├── background.js      # Service Worker for message handling
+├── popup.html         # Main interface
+├── popup.js           # Popup logic and injected scripts
+├── content.js         # Content script (messaging)
+├── preview.html       # Data preview interface
+└── preview.js         # Preview logic
 
-formulario-prueba.html # Formulario HTML de prueba
+test-form.html         # HTML test form
 ```
 
-## Privacidad
+## Privacy
 
-- **No envía datos** a ningún servidor
-- **No usa analytics** ni tracking
-- Los datos se guardan **localmente** en tu navegador (`chrome.storage.local`)
-- Solo vos tenés acceso a tus datos capturados
+- **No data** sent to any server
+- **No analytics** or tracking
+- Data is stored **locally** in your browser (`chrome.storage.local`)
+- Only you have access to your captured data
 
-## Requisitos
+## Requirements
 
-- Chrome 88+ (soporte para Manifest V3)
+- Chrome 88+ (Manifest V3 support)
 
-## Licencia
+## License
 
 MIT
 
-## Contribuciones
+## Contributions
 
-Las issues y pull requests son bienvenidas.
+Issues and pull requests are welcome.
 
-## Autor
+## Author
 
 David Silva
