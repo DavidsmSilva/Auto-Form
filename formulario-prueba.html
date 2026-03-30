@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Prueba Extenso - FormAutoFill</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 0 auto; padding: 40px 20px; background: #f5f5f5; }
+    h1 { text-align: center; color: #333; margin-bottom: 10px; }
+    .subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+    fieldset { background: white; padding: 25px; margin-bottom: 20px; border-radius: 10px; border: 1px solid #ddd; }
+    legend { font-weight: bold; font-size: 18px; color: #333; padding: 0 10px; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; margin-bottom: 6px; font-weight: 500; color: #444; }
+    label.required::after { content: ' *'; color: red; }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="password"], 
+    input[type="url"], input[type="search"], input[type="number"], input[type="date"],
+    input[type="datetime-local"], input[type="time"], input[type="color"],
+    input[type="range"], input[type="file"], select, textarea {
+      width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;
+    }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #4a90d9; box-shadow: 0 0 0 3px rgba(74,144,217,0.1); }
+    .row { display: flex; gap: 15px; flex-wrap: wrap; }
+    .col { flex: 1; min-width: 200px; }
+    .checkbox-group, .radio-group { display: flex; flex-wrap: wrap; gap: 15px; }
+    .checkbox-group label, .radio-group label { font-weight: normal; display: flex; align-items: center; gap: 5px; }
+    input[type="checkbox"], input[type="radio"] { width: auto; }
+    .btn { background: #4a90d9; color: white; padding: 12px 30px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; margin-right: 10px; }
+    .btn-secondary { background: #6c757d; }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <h1>📝 Formulario de Prueba Extenso</h1>
+  <p class="subtitle">Prueba la extensión FormAutoFill con múltiples tipos de campos</p>
+
+  <form id="miFormulario">
+    <!-- DATOS PERSONALES -->
+    <fieldset>
+      <legend>👤 Datos Personales</legend>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="nombre" class="required">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre completo">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Apellido">
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="email" class="required">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="Correo electrónico">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="email_alt">Correo alternativo</label>
+            <input type="email" id="email_alt" name="correo_alternativo" placeholder="Correo alternativo">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="telefono">Teléfono móvil</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Teléfono móvil">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="telefono_fijo">Teléfono fijo</label>
+            <input type="tel" id="telefono_fijo" name="telefono_fijo" placeholder="Teléfono fijo">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="documento" class="required">Número de documento</label>
+        <input type="text" id="documento" name="dni" placeholder="Número de documento">
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="fecha_nac">Fecha de nacimiento</label>
+            <input type="date" id="fecha_nac" name="fecha_nacimiento">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="edad">Edad</label>
+            <input type="number" id="edad" name="edad" min="18" max="99">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Género</label>
+        <div class="radio-group">
+          <label><input type="radio" name="genero" value="masculino"> Masculino</label>
+          <label><input type="radio" name="genero" value="femenino"> Femenino</label>
+          <label><input type="radio" name="genero" value="otro"> Otro</label>
+          <label><input type="radio" name="genero" value="nsnc"> Prefiero no decir</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- DIRECCIÓN -->
+    <fieldset>
+      <legend>🏠 Dirección</legend>
+      <div class="form-group">
+        <label for="calle">Calle y número</label>
+        <input type="text" id="calle" name="direccion" placeholder="Calle y número">
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="piso">Piso/Dpto</label>
+            <input type="text" id="piso" name="piso" placeholder="Piso/Dpto">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="codigo_postal">Código postal</label>
+            <input type="text" id="codigo_postal" name="codigo_postal" placeholder="Código postal">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="provincia">Provincia/Estado</label>
+            <select id="provincia" name="provincia">
+              <option value="">Seleccionar...</option>
+              <option value="caba">CABA</option>
+              <option value="bsas">Buenos Aires</option>
+              <option value="cordoba">Córdoba</option>
+              <option value="santa_fe">Santa Fe</option>
+              <option value="mendoza">Mendoza</option>
+              <option value="tucuman">Tucumán</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="pais">País</label>
+        <select id="pais" name="pais">
+          <option value="argentina" selected>Argentina</option>
+          <option value="chile">Chile</option>
+          <option value="uruguay">Uruguay</option>
+          <option value="colombia">Colombia</option>
+          <option value="mexico">México</option>
+          <option value="espana">España</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <!-- DATOS LABORALES -->
+    <fieldset>
+      <legend>💼 Datos Laborales</legend>
+      <div class="form-group">
+        <label for="empresa">Empresa/Organización</label>
+        <input type="text" id="empresa" name="empresa" placeholder="Empresa/Organización">
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="cargo">Cargo</label>
+            <input type="text" id="cargo" name="cargo" placeholder="Cargo">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="departamento">Departamento</label>
+            <input type="text" id="departamento" name="departamento" placeholder="Departamento">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="fecha_ingreso">Fecha de ingreso</label>
+            <input type="date" id="fecha_ingreso" name="fecha_ingreso">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="salario">Salario esperado</label>
+            <input type="number" id="salario" name="salario_deseado" min="0" step="1000" placeholder="Salario esperado">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="sitio_web">Sitio web profesional</label>
+        <input type="url" id="sitio_web" name="sitio_web" placeholder="https://ejemplo.com">
+      </div>
+    </fieldset>
+
+    <!-- PREFERENCIAS -->
+    <fieldset>
+      <legend>⚙️ Preferencias y Configuración</legend>
+      
+      <div class="form-group">
+        <label>¿Cómo nos conociste?</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="como_conocio[]" value="google"> Google</label>
+          <label><input type="checkbox" name="como_conocio[]" value="facebook"> Facebook</label>
+          <label><input type="checkbox" name="como_conocio[]" value="instagram"> Instagram</label>
+          <label><input type="checkbox" name="como_conocio[]" value="referido"> Un amigo</label>
+          <label><input type="checkbox" name="como_conocio[]" value="otro"> Otro</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="interes_principal">Área de interés principal</label>
+        <select id="interes_principal" name="interes_principal">
+          <option value="">Seleccionar...</option>
+          <option value="desarrollo">Desarrollo Web</option>
+          <option value="diseno">Diseño Gráfico</option>
+          <option value="marketing">Marketing Digital</option>
+          <option value="data">Ciencia de Datos</option>
+          <option value="seguridad">Ciberseguridad</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="color_favorito">Color favorito</label>
+            <input type="color" id="color_favorito" name="color_favorito" value="#3498db">
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="nivel_experiencia">Nivel de experiencia</label>
+            <input type="range" id="nivel_experiencia" name="nivel_experiencia" min="1" max="10" value="5">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="hora_preferida">Hora preferida de contacto</label>
+        <input type="time" id="hora_preferida" name="hora_preferida">
+      </div>
+
+      <div class="form-group">
+        <label for="cita_programada">Cita programada</label>
+        <input type="datetime-local" id="cita_programada" name="cita_programada">
+      </div>
+    </fieldset>
+
+    <!-- INFORMACIÓN ADICIONAL -->
+    <fieldset>
+      <legend>📋 Información Adicional</legend>
+      
+      <div class="form-group">
+        <label for="comentarios">Comentarios o preguntas</label>
+        <textarea id="comentarios" name="comentarios" rows="4" placeholder="Comentarios o preguntas"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="expectativas">¿Cuáles son tus expectativas?</label>
+        <textarea id="expectativas" name="expectativas" rows="3" placeholder="Expectativas"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="adjunto">Adjuntar currículum</label>
+        <input type="file" id="adjunto" name="curriculum" accept=".pdf,.doc,.docx">
+      </div>
+
+      <div class="checkbox-group" style="margin-top: 15px;">
+        <label><input type="checkbox" name="newsletter" value="si"> Suscribirse al newsletter</label>
+        <label><input type="checkbox" name="terminos" value="si" required> Acepto los términos y condiciones *</label>
+        <label><input type="checkbox" name="privacidad" value="si"> He leído la política de privacidad</label>
+      </div>
+    </fieldset>
+
+    <!-- CAMPOS OCULTOS -->
+    <input type="hidden" name="codigo_referido" value="REF2024">
+    <input type="hidden" name="utm_source" value="form_test">
+    <input type="hidden" name="timestamp_creacion" id="timestamp_hidden">
+
+    <div style="text-align: center; margin-top: 30px;">
+      <button type="submit" class="btn">Enviar formulario</button>
+      <button type="reset" class="btn btn-secondary">Limpiar</button>
+    </div>
+  </form>
+
+  <script>
+    // Este formulario está vacío para pruebas de la extensión
+    // Los campos se dejan en blanco para que el usuario los complete manualmente
+  </script>
+</body>
+</html>

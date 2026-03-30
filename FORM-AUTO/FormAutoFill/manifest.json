@@ -8,6 +8,9 @@
     "activeTab",
     "scripting"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_title": "FormAutoFill"
@@ -18,5 +21,28 @@
       "js": ["content.js"],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "commands": {
+    "copy-form": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+C",
+        "mac": "Command+Shift+C"
+      },
+      "description": "Copiar formulario actual"
+    },
+    "paste-form": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+V",
+        "mac": "Command+Shift+V"
+      },
+      "description": "Pegar formulario guardado"
+    },
+    "show-preview": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "Mostrar preview de datos guardados"
+    }
+  }
 }

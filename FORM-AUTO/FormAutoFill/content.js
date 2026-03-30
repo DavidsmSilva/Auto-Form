@@ -4,6 +4,10 @@
 chrome.runtime.onMessage.addListener((msg, sender, respond) => {
   if (msg.action === 'PING') {
     respond({ ok: true });
+    return false;
   }
-  return true;
+  
+  // Por ahora no procesamos otros mensajes desde content script
+  // El popup maneja toda la lógica mediante scripts inyectados
+  return false;
 });
